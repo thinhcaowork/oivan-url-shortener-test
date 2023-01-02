@@ -15,9 +15,10 @@
 #
 class Url < ApplicationRecord
   SHORT_ID_LENGTH = 6
-  validates_presence_of :original
+  validates_presence_of :original, :short
+  validates_uniqueness_of :original, :short
   validates :original, format: URI::regexp(%w[http https])
-  validates_uniqueness_of :short
+  validates :short, format: URI::regexp(%w[http https])
   validates_length_of :original, within: 3..255, on: :create, message: "too long"
   validates_length_of :short, within: 3..255, on: :create, message: "too long"
 
