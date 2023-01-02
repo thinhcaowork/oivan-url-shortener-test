@@ -3,6 +3,9 @@ class UrlsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :validate_parameters
 
+  # POST /encode
+  # params
+  # url: string, required
   def encode
     url = Url.find_or_create_url(params[:url])
 
@@ -13,6 +16,9 @@ class UrlsController < ApplicationController
     end
   end
 
+  # GET /decode
+  # params
+  # url: string, required
   def decode
     url = Rails.cache.fetch("#{params[:url]}/decode", expires_in: 24.hours) do
             Url.find_by(short: params[:url])
