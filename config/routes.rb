@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   controller :urls do
     post :encode
+    get :decode
   end
 end
