@@ -14,7 +14,7 @@ Things you may want to cover:
 - Run `bundle install`
 - Run `bundle exec figaro install`
 
-Figaro will generate for you a file `config/application.yml`. We will use the file to config some environment variables like `ENV[shorten_host]`, `ENV[db_username]`, and `ENV[db_username]`.
+Figaro will generate for you a file `config/application.yml`. We will use the file to config some environment variables like `ENV["shorten_host"]`, `ENV["db_username"]`, and `ENV["db_username"]`.
 
 For example:
 	db_username: `your-db-username-here`
@@ -100,3 +100,8 @@ def valid_uri?(url)
     # check u.scheme, u.userinfo, etc. to ensure the url is valid before saving into database
 end
 ```
+
+### Heroku config
+
+- Repository url: `https://evening-journey-47085.herokuapp.com`
+- ENV["shorten_host"]: `https://oivan.short/`
